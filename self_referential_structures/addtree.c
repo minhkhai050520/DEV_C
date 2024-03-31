@@ -8,7 +8,7 @@ struct tnode *addtree(struct tnode *newNode, char *value)
 	if(newNode == NULL)
 	{
 		newNode = talloc();
-		newNode->word = value;
+		newNode->word = wStrdup(value);
 		newNode->count = 1;
 		newNode->left = newNode->right = NULL;
 	}else if((cond = strcmp(value, newNode->word)) == 0)
