@@ -6,5 +6,5 @@ final : $(objects)
 $(objects): myLib.h
 .PHONY: clean
 clean:
-	rm *.o final
+	del *.o final.exe
 
