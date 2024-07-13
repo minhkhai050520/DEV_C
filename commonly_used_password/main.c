@@ -65,7 +65,7 @@ int readlines(char *lineptr[], int maxlines, FILE *fp)
 
     nlines = 0;
     while((len = getline(line, MAXLEN, fp)) > 0)
-        if(nlines >= maxlines || (p = malloc(len * sizeof(char))) == NULL)
+        if(nlines >= maxlines || (p = (char*)malloc(len * sizeof(char))) == NULL)
             return -1;
         else {
             line[len-1] = '\0';
