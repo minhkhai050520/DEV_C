@@ -2,7 +2,7 @@
 #include<stdio.h>
 #include "my_lib.h"
 
-void qsort(char *v[], int left, int right)
+void myqsort(char *v[], int left, int right)
 {
     int last, i;
     void swap(char *v[], int i, int j);
@@ -17,8 +17,8 @@ void qsort(char *v[], int left, int right)
         if(strcmp(v[i], v[left]) < 0)
             swap(v, ++last, i);
     swap(v, last, left);
-    qsort(v, left, last -1);
-    qsort(v, last + 1, right);
+    myqsort(v, left, last -1);
+    myqsort(v, last + 1, right);
 }
 
 
