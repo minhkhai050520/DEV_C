@@ -17,7 +17,7 @@ int main()
     queue Q;
     int size;
     char c;
-    printf("Enter a size of the stack: ");
+    printf("Enter a size of the queue: ");
     scanf("%d", &size);
     initqueue(&Q, size);
 
@@ -66,6 +66,12 @@ void initqueue(queue *q, int size)
 
 void enqueue(queue *q, int x)
 {
+    if((q->tail + 1) == q->head || (q->head == 0 && q->tail == (q->size -1)))
+    {
+        printf("Queue is full\n");
+        return;
+    }
+
     q->pt[q->tail] = x;
 
     if(q->tail == (q->size - 1))
@@ -77,6 +83,11 @@ void enqueue(queue *q, int x)
 int dequeue(queue *q)
 {
     int x;
+    if(q->head == q->tail)
+    {
+        printf("Queue is empty\n");
+        return -1;
+    }
     x = q->pt[q->head];
 
     if(q->head == (q->size -1))
